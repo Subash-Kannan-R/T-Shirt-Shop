@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Access | Your Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .toggle-container {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .toggle-btn {
+            flex: 1;
+            padding: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            color: #777;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-btn.active {
+            color: #dc4a4a;
+            border-bottom: 2px solid #dc4a4a;
+        }
+        
+        h2 {
+            margin: 20px 0;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: border 0.3s ease;
+        }
+        
+        input:focus {
+            border-color: #4a89dc;
+            outline: none;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .remember {
+            display: flex;
+            align-items: center;
+        }
+        
+        .remember input {
+            margin-right: 8px;
+        }
+        
+        .forgot-link {
+            color: #4a89dc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #dc4a4a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #3a76c5;
+        }
+        
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .form-footer a {
+            color: #4a89dc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .privacy-note {
+            font-size: 13px;
+            color: #999;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        
+        .form {
+            display: none;
+        }
+        
+        .form.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="toggle-container">
+            <button class="toggle-btn active" id="login-toggle">Sign in</button>
+            <button class="toggle-btn" id="signup-toggle">Sign up</button>
+        </div>
+        
+        <div class="form-container">
+            <!-- Login Form -->
+            <form id="login-form" class="form active">
+                <h2>Great to have you back!</h2>
+                
+                <div class="form-group">
+                    <label for="login-email">Username or email</label>
+                    <input type="text" id="login-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember</label>
+                    </div>
+                    <a href="#" class="forgot-link">Lost?</a>
+                </div>
+                
+                <button type="submit" class="submit-btn">SIGN IN TO YOUR ACCOUNT</button>
+                
+                <div class="form-footer">
+                    <p>Not a member? <a href="#" id="to-signup">Create an account</a></p>
+                </div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signup-form" class="form">
+                <h2>Great to see you here!</h2>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email address</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                
+                <p class="privacy-note">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>
+                
+                <button type="submit" class="submit-btn">SETUP YOUR ACCOUNT</button>
+                
+                <div class="form-footer">
+                    <p>Already got an account? <a href="#" id="to-login">Sign in here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginToggle = document.getElementById('login-toggle');
+            const signupToggle = document.getElementById('signup-toggle');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const toSignup = document.getElementById('to-signup');
+            const toLogin = document.getElementById('to-login');
+            
+            // Function to switch to login form
+            function showLogin() {
+                loginToggle.classList.add('active');
+                signupToggle.classList.remove('active');
+                loginForm.classList.add('active');
+                signupForm.classList.remove('active');
+            }
+            
+            // Function to switch to signup form
+            function showSignup() {
+                signupToggle.classList.add('active');
+                loginToggle.classList.remove('active');
+                signupForm.classList.add('active');
+                loginForm.classList.remove('active');
+            }
+            
+            // Event listeners for toggle buttons
+            loginToggle.addEventListener('click', showLogin);
+            signupToggle.addEventListener('click', showSignup);
+            toSignup.addEventListener('click', function(e) {
+                e.preventDefault();
+                showSignup();
+            });
+            toLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                showLogin();
+            });
+            
+            // Form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add your login logic here
+                alert('Login functionality would be implemented here.');
+            });
+            
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add your signup logic here
+                alert('Signup functionality would be implemented here.');
+            });
+        });
+    </script>
+</body>
+</html>
