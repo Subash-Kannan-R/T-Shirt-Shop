@@ -6,12 +6,10 @@ export default function Shop() {
   const [showCategories, setShowCategories] = useState(false);
   const [showSizes, setShowSizes] = useState(false);
   const categories = [
-    { label: "Polo Collar T-shirt", type: "Polo Collar T-shirt" },
-    { label: "Classic Round Neck", type: "Classic Round Neck" },
-    { label: "Dual Hoodie", type: "Dual Hoodie" },
-    { label: "Dragen Hoodie", type: "Dragen Hoodie" },
-    { label: "Flower Hoodie", type: "Flower Hoodie" },
-    { label: "Pattern Hoodie", type: "Pattern Hoodie" }
+    { label: "Hoodies", type: "Hoodie" },
+    { label: "T-Shirts", type: "T-Shirt" },
+    { label: "Polo Shirts", type: "Polo" },
+    { label: "Sweatshirts", type: "Sweatshirt" }
   ];
   const sizes = ["L", "M", "S", "XL", "XXL"];
   const [showStatus, setShowStatus] = useState(false);

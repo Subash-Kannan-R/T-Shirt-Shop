@@ -7,13 +7,10 @@ import Shop from "./Components/Shop";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Poster from "./Components/Poster";
-import Roundneck from "./Components/Roundneck";
-import Hoodie from "./Components/Hoodie";
 import Home from "./Pages/Home";
 import Products from "./Components/Products";
 import Wishlist from "./Components/Wishlist";
 import ProductDetail from "./Components/ProductDetail";
-import Collar from "./Components/Collar";
 import { CartProvider } from "./context/CartContext";
 import { CheckoutProvider } from "./context/CheckoutContext";
 import { ToastProvider } from "./context/ToastContext";
@@ -38,6 +35,7 @@ import RequireAdmin from "./Components/RequireAdmin";
 import RequireAuth from "./Components/RequireAuth";
 import ForgotPassword from "./Pages/Auth/ForgotPassword";
 import ResetPassword from "./Pages/Auth/ResetPassword";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   return (
@@ -48,14 +46,12 @@ function App() {
           <>
             <Navbar />
             <Routes>
-              <Route path="/" element={<><Home /><Roundneck /> <Footer/> </>} />
+              <Route path="/" element={<><Home /> <Footer/> </>} />
               <Route path="/shop" element={<><Shop /> <Products /></>} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/poster" element={<Poster />} />
-              <Route path="/hoodie" element={<Hoodie />} />
-              <Route path="/collar" element={<Collar />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout/information" element={<Information />} />
@@ -76,6 +72,7 @@ function App() {
                 <Route path="orders" element={<AdminOrders />} />
                 <Route path="users" element={<AdminUsers />} />
               </Route>
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </>
           </WishlistProvider>
